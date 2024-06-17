@@ -1,0 +1,56 @@
+#alias for default container 
+
+alias wget='wget -c'
+alias da='date "+%Y-%m-%d %A %T %Z"'
+alias zellij='zellij options --disable-mouse-mode'
+
+#find folder
+alias fh='find . -name '
+
+#add a rogress bar to copy
+alias cpv='rsync -ah --info=progress2'
+#Gets a total recursirve count of existing files, no folders.
+alias lc='find . -type f | wc -l'
+
+#enter docker  fast
+alias dex="sudo docker exec -i -t"
+#fin docker ip adress
+alias dip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+
+
+#bash_functions
+function fzf-kill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+
+# Man without options will use fzf to select a page
+function fzf-man(){
+        MAN="/usr/bin/man"
+        if [ -n "$1" ]; then
+                $MAN "$@"
+                return $?
+        else
+                $MAN -k . | fzf --reverse --preview="echo {1,2} | sed 's/ (/./' | sed -E 's/\)\s*$//' | xargs $MAN" | awk '{print $1 "." $2}' | tr -d '()' | xargs -r $MAN
+                return $?
+        fi
+}
+
+
+#find words in current directory
+fstr() {
+    grep -Rnw "." -e "$1"
+}
+
+
+#search bash history
+function hg() {
+    history | grep "$1";
+}
