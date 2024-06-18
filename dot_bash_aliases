@@ -3,7 +3,7 @@
 alias wget='wget -c'
 alias da='date "+%Y-%m-%d %A %T %Z"'
 alias zellij='zellij options --disable-mouse-mode'
-
+alias ls='ls -hN --color=auto --group-directories-first'
 #find folder
 alias fh='find . -name '
 

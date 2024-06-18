@@ -162,4 +162,4 @@ fi
 export GREP_OPTIONS='--color=auto'
 export VISUAL=vim                                                                                                             
 export EDITOR="$VISUAL"
-export MANPAGER="vim +Man!"
+export MANPAGER='vim -M +MANPAGER "+set nonumber" -'
