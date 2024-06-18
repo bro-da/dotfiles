@@ -162,3 +162,4 @@ fi
 export GREP_OPTIONS='--color=auto'
 export VISUAL=vim                                                                                                             
 export EDITOR="$VISUAL"
+export MANPAGER="nvim +Man!"
