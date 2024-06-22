@@ -188,5 +188,14 @@ command! -nargs=* Rg call RG(<q-args>)
 " \fs
 nnoremap <leader>fs :Rg<cr>
 
+" Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <c-p> :FZF<cr>
 
 
+" - Popup window (center of the current window)
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
